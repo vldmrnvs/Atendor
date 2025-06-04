@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { ReactNode } from 'react';
 import { GeistSans } from 'geist/font/sans';
+import Header from '@/components/Header';
 
 export const metadata = {
   title: 'Atendor',
@@ -10,7 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>{children}</body>
+      <body className={GeistSans.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

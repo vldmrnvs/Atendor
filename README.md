@@ -17,7 +17,7 @@ npm i -g pnpm
    ```bash
    pnpm install
    ```
-2. Configure environment variables in `.env.local`:
+2. Copy `.env.example` to `.env.local` and configure your environment variables:
    ```env
    NEXT_PUBLIC_SUPABASE_URL=
    NEXT_PUBLIC_SUPABASE_ANON_KEY=

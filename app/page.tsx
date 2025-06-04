@@ -1,25 +1,52 @@
+"use client";
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
-import { TextReveal } from '@/components/magicui/text-reveal';
+import { BentoGrid, BentoGridItem } from '@/components/magicui/bento-grid';
 
 export default function Home() {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero */}
-      <section className="hero relative flex-1 bg-base-200 py-20">
-        <FlickeringGrid />
-        <div className="hero-content text-center relative z-10">
+      <section className="hero relative flex-1 overflow-hidden bg-base-200 py-20">
+        <FlickeringGrid className="absolute inset-0 -z-10 opacity-20" />
+        <div className="relative z-10 hero-content text-center">
           <div className="max-w-md space-y-4">
             <h1 className="text-5xl font-bold">Atendor</h1>
             <p className="py-2 text-lg">
-              Crea asistentes de IA personalizados para tu negocio
+              Create personalized AI assistants for your business
             </p>
             <Link href="/signup" className="btn btn-primary">
-              Comienza gratis
+              Get started free
             </Link>
           </div>
         </div>
       </section>
+
+      <div className="my-16 px-4">
+        <BentoGrid>
+          <BentoGridItem
+            title="Serve clients 24/7"
+            description="Let your assistant respond at any time"
+            icon="\uD83D\uDD0C"
+          />
+          <BentoGridItem
+            title="Train your AI assistant in seconds"
+            description="Upload docs or links and you're done"
+            icon="\u23F3"
+          />
+          <BentoGridItem
+            title="Personal support tailored to your business"
+            description="Your data powers unique responses"
+            icon="\uD83E\uDD1D"
+          />
+        </BentoGrid>
+      </div>
 
       {/* How it works */}
       <section className="container mx-auto my-16 px-4">
@@ -75,6 +102,12 @@ export default function Home() {
             Dashboard
           </Link>
         </nav>
+        <button
+          className="btn btn-sm"
+          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        >
+          {theme === 'light' ? 'Dark' : 'Light'} mode
+        </button>
       </footer>
     </main>
   );

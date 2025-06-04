@@ -13,7 +13,11 @@ Atendor is a modern SaaS platform for creating personal AI assistants.
    ```bash
    npm install
    ```
-2. Configure environment variables in `.env.local`:
+2. Copy the example env file and configure your variables
+   ```bash
+   cp .env.example .env.local
+   ```
+   `.env.example` includes:
    ```env
    NEXT_PUBLIC_SUPABASE_URL=
    NEXT_PUBLIC_SUPABASE_ANON_KEY=

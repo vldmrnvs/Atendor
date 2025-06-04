@@ -1,7 +1,6 @@
 'use client';
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 
 export default function Signup() {
   const router = useRouter();
@@ -12,15 +11,11 @@ export default function Signup() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
-    if (error) {
-      setError(error.message);
-    } else {
-      router.push('/dashboard');
+    if (!email || !password) {
+      setError('Por favor completa los campos');
+      return;
     }
+    router.push('/dashboard');
   };
 
   return (

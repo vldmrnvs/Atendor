@@ -1,3 +1,5 @@
+import { motion } from 'motion/react';
+
 export default function ChatBubble({
   text,
   from,
@@ -7,7 +9,13 @@ export default function ChatBubble({
 }) {
   return (
     <div className={`chat ${from === 'user' ? 'chat-end' : 'chat-start'}`}>
-      <div className="chat-bubble">{text}</div>
+      <motion.div
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="chat-bubble"
+      >
+        {text}
+      </motion.div>
     </div>
   );
 }

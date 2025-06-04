@@ -15,9 +15,6 @@ export default function AdminBots() {
           </li>
         ))}
       </ul>
-      <Link href="/admin" className="link">
-        Volver
-      </Link>
     </main>
   );
 }

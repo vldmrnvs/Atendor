@@ -1,8 +1,9 @@
 "use client";
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { BentoGrid, BentoGridItem } from '@/components/magicui/bento-grid';
+import ThemeToggle from '@/components/ThemeToggle';
 import {
   AlarmClock,
   UploadCloud,
@@ -12,10 +13,6 @@ import {
 } from 'lucide-react';
 
 export default function Home() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -121,12 +118,7 @@ export default function Home() {
             Dashboard
           </Link>
         </nav>
-        <button
-          className="btn btn-sm"
-          onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-        >
-          {theme === 'light' ? 'Dark' : 'Light'} mode
-        </button>
+        <ThemeToggle />
       </footer>
     </main>
   );

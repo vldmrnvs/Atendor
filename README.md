@@ -6,7 +6,7 @@ Atendor is a modern SaaS platform for creating personal AI assistants.
 - Supabase authentication and storage
 - DaisyUI styled components with TailwindCSS
 - Simple bot creation and training
-- Chat interface with Context7 memory
+- Chat interface with Context7 memory (falls back to MagicMCP)
 
 ## Getting Started
 This project uses **pnpm** for package management. Install it globally if you
@@ -27,6 +27,9 @@ npm i -g pnpm
    CONTEXT7_API_KEY=
    OPENROUTER_API_KEY=
    ```
+   `CONTEXT7_API_KEY` is used by the memory helpers to store and retrieve
+   conversations. When Context7 is unavailable, the helpers automatically
+   fall back to MagicMCP.
 3. Run the development server
    ```bash
    pnpm dev

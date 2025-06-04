@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import { FlickeringGrid } from '@/components/magicui/flickering-grid';
+import { TextReveal } from '@/components/magicui/text-reveal';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* Hero */}
-      <section className="hero flex-1 bg-base-200 py-20">
-        <div className="hero-content text-center">
+      <section className="hero relative flex-1 bg-base-200 py-20">
+        <FlickeringGrid />
+        <div className="hero-content text-center relative z-10">
           <div className="max-w-md space-y-4">
             <h1 className="text-5xl font-bold">Atendor</h1>
             <p className="py-2 text-lg">

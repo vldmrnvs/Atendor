@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { ReactNode, HTMLAttributes } from "react";
+import type { HTMLMotionProps } from "framer-motion";
 
 export interface BentoGridProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -10,7 +12,7 @@ export function BentoGrid({ className, ...props }: BentoGridProps) {
   return (
     <div
       className={cn(
-        "mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3",
+        "mx-auto grid w-full max-w-5xl auto-rows-[18rem] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4",
         className,
       )}
       {...props}
@@ -18,7 +20,7 @@ export function BentoGrid({ className, ...props }: BentoGridProps) {
   );
 }
 
-export interface BentoGridItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface BentoGridItemProps extends HTMLMotionProps<"div"> {
   title: string;
   description: string;
   icon?: ReactNode;
@@ -35,10 +37,14 @@ export function BentoGridItem({
   className,
   ...props
 }: BentoGridItemProps) {
-  const content = (
-    <div
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ scale: 1.03 }}
       className={cn(
-        "flex h-full flex-col justify-between overflow-hidden rounded-xl bg-base-100 p-6 shadow",
+        "flex h-full flex-col justify-between overflow-hidden rounded-xl bg-base-100 p-6 shadow transition-all",
         className,
       )}
       {...props}
@@ -52,7 +58,6 @@ export function BentoGridItem({
           <ArrowRight className="ms-1 h-4 w-4" />
         </Link>
       )}
-    </div>
+    </motion.div>
   );
-  return content;
 }

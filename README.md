@@ -9,7 +9,8 @@ Atendor is a modern SaaS platform for creating personal AI assistants.
 - Chat interface with Context7 memory
 
 ## Getting Started
-pnpm is required and can be installed globally:
+This project uses **pnpm** for package management. Install it globally if you
+haven't already:
 ```bash
 npm i -g pnpm
 ```

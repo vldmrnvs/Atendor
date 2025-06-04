@@ -38,6 +38,9 @@ importers:
       magicui:
         specifier: github:magicuidesign/magicui
         version: https://codeload.github.com/magicuidesign/magicui/tar.gz/55c4de1e95233398f8df9ee8b080280ac9edf0b9(@babel/core@7.27.4)(@types/node@22.15.29)(@types/react@19.1.6)(typescript@5.8.3)
+      motion:
+        specifier: ^11.0.0
+        version: 11.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       next:
         specifier: 14.1.0
         version: 14.1.0(@babel/core@7.27.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -6695,6 +6698,14 @@ snapshots:
       motion-utils: 11.18.1
 
   motion-utils@11.18.1: {}
+
+  motion@11.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      framer-motion: 11.18.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   motion@11.18.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

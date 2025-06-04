@@ -4,6 +4,7 @@ import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import BackButton from './BackButton';
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text';
+import { ShimmerButton } from '@/components/magicui/shimmer-button';
 
 export default function Header() {
   const [loggedIn] = useState(false);
@@ -30,8 +31,8 @@ export default function Header() {
               <Link href="/login" className="link-hover link">
                 Login
               </Link>
-              <Link href="/signup" className="link-hover link">
-                Sign Up
+              <Link href="/signup">
+                <ShimmerButton className="px-6 py-3">Get started free</ShimmerButton>
               </Link>
             </>
           )}

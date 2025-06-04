@@ -3,6 +3,13 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { BentoGrid, BentoGridItem } from '@/components/magicui/bento-grid';
+import {
+  AlarmClock,
+  UploadCloud,
+  Handshake,
+  Settings,
+  Plug,
+} from 'lucide-react';
 
 export default function Home() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -31,19 +38,31 @@ export default function Home() {
       <div className="my-16 px-4">
         <BentoGrid>
           <BentoGridItem
+            className="sm:col-span-2 sm:row-span-2"
             title="Serve clients 24/7"
             description="Let your assistant respond at any time"
-            icon="\uD83D\uDD0C"
+            icon={<AlarmClock />}
           />
           <BentoGridItem
-            title="Train your AI assistant in seconds"
+            title="Train your assistant in seconds"
             description="Upload docs or links and you're done"
-            icon="\u23F3"
+            icon={<UploadCloud />}
           />
           <BentoGridItem
-            title="Personal support tailored to your business"
-            description="Your data powers unique responses"
-            icon="\uD83E\uDD1D"
+            title="Tailored support"
+            description="Your assistant learns your tone"
+            icon={<Handshake />}
+          />
+          <BentoGridItem
+            className="sm:col-span-2"
+            title="No coding required"
+            description="Setup easily with our dashboard"
+            icon={<Settings />}
+          />
+          <BentoGridItem
+            title="Seamless integrations"
+            description="Connect to your site with one script"
+            icon={<Plug />}
           />
         </BentoGrid>
       </div>

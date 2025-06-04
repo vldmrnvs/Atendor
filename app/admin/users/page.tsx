@@ -15,9 +15,6 @@ export default function AdminUsers() {
           </li>
         ))}
       </ul>
-      <Link href="/admin" className="link">
-        Volver
-      </Link>
     </main>
   );
 }

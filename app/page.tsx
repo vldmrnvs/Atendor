@@ -4,18 +4,20 @@ import Link from 'next/link';
 import { FlickeringGrid } from '@/components/magicui/flickering-grid';
 import { BentoGrid, BentoGridItem } from '@/components/magicui/bento-grid';
 import { TypingAnimation } from '@/components/magicui/typing-animation';
-import { ScrollBasedVelocity } from '@/components/magicui/scroll-based-velocity';
 import { DotPattern } from '@/components/magicui/dot-pattern';
+import { ScrollBasedVelocity } from '@/components/magicui/scroll-based-velocity';
 import { ShimmerButton } from '@/components/magicui/shimmer-button';
 import { BoxReveal } from '@/components/magicui/box-reveal';
-import ThemeToggle from '@/components/ThemeToggle';
 import {
   AlarmClock,
   UploadCloud,
   Handshake,
   Settings,
   Plug,
+  Instagram,
+  Youtube,
 } from 'lucide-react';
+import TikTokIcon from '@/components/icons/TikTok';
 
 export default function Home() {
 
@@ -28,11 +30,8 @@ export default function Home() {
         <div className="relative z-10 hero-content text-center">
           <div className="max-w-md space-y-4">
             <TypingAnimation as="h1" className="text-5xl font-bold">
-              Atendor
+              Build your own chatbot in seconds with Atendor.
             </TypingAnimation>
-            <ScrollBasedVelocity className="py-2 text-lg" defaultVelocity={1}>
-              Build your own agent bot in seconds.
-            </ScrollBasedVelocity>
             <Link href="/signup">
               <ShimmerButton className="px-6 py-3">Get started free</ShimmerButton>
             </Link>
@@ -121,20 +120,35 @@ export default function Home() {
         </BoxReveal>
       </section>
 
+      {/* Scroll headline */}
+      <section className="overflow-hidden py-16">
+        <ScrollBasedVelocity className="text-center" defaultVelocity={3}>
+          Build your bot agent in seconds
+        </ScrollBasedVelocity>
+      </section>
+
       {/* Footer */}
-      <footer className="footer footer-center bg-base-200 p-4">
-        <nav className="grid grid-flow-col gap-4">
-          <Link href="/login" className="link-hover link">
-            Ingresar
-          </Link>
-          <Link href="/signup" className="link-hover link">
-            Registro
-          </Link>
-          <Link href="/dashboard" className="link-hover link">
-            Dashboard
-          </Link>
-        </nav>
-        <ThemeToggle />
+      <footer className="footer bg-base-200 text-base-content">
+        <div className="container mx-auto grid grid-cols-1 items-center justify-between gap-4 py-6 md:grid-cols-2">
+          <p className="justify-self-start">© Atendor 2025 – All rights reserved</p>
+          <nav className="justify-self-end flex flex-wrap items-center gap-4">
+            <Link href="/privacy" className="link-hover link">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="link-hover link">
+              Terms
+            </Link>
+            <Link href="https://instagram.com" className="link-hover" aria-label="Instagram">
+              <Instagram className="h-5 w-5" />
+            </Link>
+            <Link href="https://tiktok.com" className="link-hover" aria-label="TikTok">
+              <TikTokIcon className="h-5 w-5" />
+            </Link>
+            <Link href="https://youtube.com" className="link-hover" aria-label="YouTube">
+              <Youtube className="h-5 w-5" />
+            </Link>
+          </nav>
+        </div>
       </footer>
     </main>
   );

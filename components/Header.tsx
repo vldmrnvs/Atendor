@@ -1,18 +1,19 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import BackButton from './BackButton';
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text';
-import { ShimmerButton } from '@/components/magicui/shimmer-button';
 
 export default function Header() {
+  const pathname = usePathname();
   const [loggedIn] = useState(false);
   return (
     <header className="border-b bg-base-100">
       <nav className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center gap-4">
-          <BackButton className="hidden sm:inline-flex" />
+          {pathname !== '/' && <BackButton className="hidden sm:inline-flex" />}
           <Link href="/" className="font-bold">
             <AnimatedShinyText className="text-2xl">Atendor</AnimatedShinyText>
           </Link>
@@ -31,8 +32,8 @@ export default function Header() {
               <Link href="/login" className="link-hover link">
                 Login
               </Link>
-              <Link href="/signup">
-                <ShimmerButton className="px-6 py-3">Get started free</ShimmerButton>
+              <Link href="/signup" className="link-hover link">
+                Registrarse
               </Link>
             </>
           )}

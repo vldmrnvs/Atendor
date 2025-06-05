@@ -1,17 +1,21 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const navItems = [
-  { href: '/dashboard', label: 'My Bots' },
-  { href: '/bots/new', label: 'Create Bot' },
+  { href: '/dashboard/bots', label: 'My Bots' },
+  { href: '/dashboard/bots/new', label: 'Create Bot' },
   { href: '/dashboard/settings', label: 'Settings' },
-  { href: '/help', label: 'Help / Feedback' },
+  { href: '/dashboard/account', label: 'My Account' },
+  { href: '/dashboard/feedback', label: 'Feedback' },
 ];
 
 export default function DashboardSidebar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,30 +26,27 @@ export default function DashboardSidebar() {
       >
         {open ? <X /> : <Menu />}
       </button>
-      <AnimatePresence>
-        {(open || typeof window === 'undefined') && (
-          <motion.aside
-            initial={{ x: -260 }}
-            animate={{ x: 0 }}
-            exit={{ x: -260 }}
-            transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-            className="fixed inset-y-0 left-0 z-20 w-56 bg-base-100 p-4 shadow sm:static sm:translate-x-0"
-          >
+      <motion.aside
+        className={`fixed inset-y-0 left-0 z-20 flex w-56 flex-col bg-base-100 p-4 shadow transition-transform sm:static sm:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}`}
+      >
             <nav className="space-y-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded px-2 py-2 transition hover:bg-base-200"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                <motion.div whileHover={{ scale: 1.05 }} key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`block rounded px-2 py-2 transition hover:bg-base-200 ${pathname === item.href ? 'bg-base-200' : ''}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
-          </motion.aside>
-        )}
-      </AnimatePresence>
+            <div className="mt-auto space-y-2 pt-4">
+              <ThemeToggle />
+              <button className="btn btn-ghost btn-sm w-full">Logout</button>
+            </div>
+      </motion.aside>
     </div>
   );
 }

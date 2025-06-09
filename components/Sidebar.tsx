@@ -13,13 +13,13 @@ const nav = [
 export default function Sidebar() {
   const pathname = usePathname();
   return (
-    <aside className="fixed left-0 top-0 flex h-full w-[260px] min-w-[250px] flex-col border-r bg-white p-4">
+    <aside className="fixed left-0 top-0 min-w-[260px] h-screen bg-white border-r flex flex-col justify-between p-4">
       <Image
         src="/atendor-logo.svg"
         alt="Atendor logo"
         width={120}
         height={40}
-        className="mx-auto my-4 h-8 w-auto"
+        className="h-8 w-auto mx-auto mt-4"
       />
       <div className="mb-6 flex items-center gap-3">
         <div className="h-10 w-10 rounded-full bg-gray-300" />

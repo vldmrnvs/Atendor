@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import BackButton from './BackButton';
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text';
 
 export default function Header() {
@@ -12,7 +11,6 @@ export default function Header() {
     <header className="border-b bg-base-100">
       <nav className="container mx-auto flex items-center justify-between p-4">
         <div className="flex items-center gap-4">
-          {pathname !== '/' && <BackButton className="hidden sm:inline-flex" />}
           <Link href="/" className="font-bold">
             <AnimatedShinyText className="text-2xl">Atendor</AnimatedShinyText>
           </Link>

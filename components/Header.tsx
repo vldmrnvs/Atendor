@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from './ThemeToggle';
 import BackButton from './BackButton';
 import { AnimatedShinyText } from '@/components/magicui/animated-shiny-text';
 
@@ -37,7 +36,6 @@ export default function Header() {
               </Link>
             </>
           )}
-          <ThemeToggle />
         </div>
       </nav>
     </header>

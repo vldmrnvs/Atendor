@@ -38,16 +38,16 @@ export default function ActivityTable() {
       </div>
       <div className="overflow-x-auto rounded-xl border">
         <table className="min-w-full text-sm">
-          <thead className="bg-gray-50 dark:bg-zinc-800">
+          <thead className="bg-gray-50">
             <tr>
               <th className="px-4 py-2 text-left">Bot</th>
               <th className="px-4 py-2 text-left">Event</th>
               <th className="px-4 py-2 text-left">Date</th>
             </tr>
           </thead>
-          <tbody className="divide-y dark:divide-zinc-700">
+          <tbody className="divide-y">
             {items.map((item) => (
-              <tr key={item.id} className="hover:bg-gray-50 dark:hover:bg-zinc-800">
+              <tr key={item.id} className="hover:bg-gray-50">
                 <td className="px-4 py-2">{item.botName}</td>
                 <td className="px-4 py-2">{item.event}</td>
                 <td className="px-4 py-2">{item.date}</td>
